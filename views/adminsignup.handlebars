@@ -1,0 +1,85 @@
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+		<h3 class="panel-title">Admin signup </h3>
+		</div>
+		<div class="panel-body">
+		<form role="form" action="/admin/signup" method="POST">
+		<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="form-group">
+		<input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+        <p class="validate" id="first_name-validate" style="display:none;">Please enter your first name.</p>
+		</div>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="form-group">
+		<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+        <p class="validate" id="last_name-validate" style="display:none;">Please enter your last name.</p>
+		</div>
+		</div>
+		</div>
+
+		<div class="form-group">
+		<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+		</div>
+		<div class="row">
+		<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="form-group">
+		<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+        <p class="validate" id="password-validate" style="display:none;">Please enter your password .</p>
+		</div>
+		</div>	    				
+		</div>	    			
+		<button type="submit" value="Register" class="btn btn-info btn-block" onclick="return empty()">regester</button>	    		
+		</form>
+		</div>
+        <label>already have an account?</label>
+        <a href="/admin/login"><button type ="login" class="btn btn default  "></button>login</a>
+	    </div>
+    	</div>
+    	</div>
+    </div>
+    <script>
+// prevent empty entry 
+function empty(){
+    var first_name=$("#first_name").val();
+    var last_name=$("#last_name").val();
+    var email=$("#email").val();
+    var password=$("password").val();
+    var validate=true;
+    if(!first_name){
+        $("#first_name-validate").show();
+        validate=false;
+    }
+    else if(first_name){
+        $("#first_name-validate").hide();
+    }
+    if(!last_name){
+        $("#last-name-validate").val();
+        validate=false;
+    }
+    else if(last_name){
+        $("#last_name-validate").hide();
+    }
+    if(!email){
+        $("#email-validate").show();
+        validate=false;
+    }
+    else if(email){
+        $("#email-validate").hide();
+
+    }
+    if(!password){
+        $("#password-validate").show();
+        validate=false;
+    }
+    else if(password){
+        $("#password-validate").hide();
+    }
+    return validate;
+}
+    </script>

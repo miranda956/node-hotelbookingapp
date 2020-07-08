@@ -1,0 +1,103 @@
+<div class="sign-form">
+    <form action="admin/book/id/:id" method="POST">
+    {{#each rooms}}
+    <label class="mr-sm-2" for="room"><h2>Booking Room Number #{{this.id}}</h2></label>
+    <input type="hidden" name="room" value="{{this.id}}">
+  {{/each}}
+		<h2>Book</h2>
+		<p>Please fill in this form to book room </p>
+		<hr>
+        <div class="form-group">
+			<label>firstname</label>
+        	<input type="text" class="form-control" name="firstname" required="required" id="firstname">
+            <p class="validate" id="firstname-validate" style="display:none;">Please enter your firstname.</p>
+        </div>
+        <div class="form-group">
+			<label>lastname</label>
+        	<input type="text" class="form-control" name="lastname" required="required" id="lastname">
+            <p class="validate" id="lastname-validate" style="display:none;">Please enter your lastname.</p>
+        </div>
+        <div class="form-group">
+			<label>phonenumber</label>
+        	<input type="text" class="form-control" name="phonenumber" required="required" id="phonenumber">
+            <p class="validate" id="phonenumber-validate" style="display:none;">Please enter your phonenumber.</p>
+        </div>
+        <div class="form-group">
+			<label>email</label>
+        	<input type="email" class="form-control" name="email" required="required" id="email">
+            <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+        </div>
+			<label>checkin_Date</label>
+            <input type="text" class="form-control" name="check_inDate" required="required" id="checkin_Date">
+            <p class="validate" id="check_inDate-validate" style="display:none;">Please enter check_inDate.</p>
+        </div>
+		<div class="form-group">
+			<label>check_outDate</label>
+            <input type="check_outDate" class="form-control" name="check_outDate" required="required" id="check_outDate">
+            <p class="validate" id="check_outDate-validate" style="display:none;">Please enter check_outDate.</p>
+        </div>        
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" onclick="return empty()">Book</button>
+        </div>
+    </form>
+    <div>
+        <form action="/" method="GET">
+    <button type="submit" id="go-back">Back to Home</button>
+  </form>
+    </div>
+    <script>
+function empty(){
+    // prevent empty entry 
+
+    var firstname=$("#firstname").val();
+    var lastname=$("#lastname").val();
+    var phonenumber=$("#phonenumber").val();
+    var email=$("#email").val();
+    var checkin_Date=$("#checkin_Date").val();
+    var check_outDate=$("#check_outDate").val();
+    var validate=true;
+
+    if(!email){
+        $("#email-validate").show();
+        validate=false;
+    }
+    else if(email){
+        $("#email-validate").hide();
+    }
+    if(!firstname){
+        $("#firstname-validate").show();
+        validate=false;
+    }
+    else if(firstname){
+        $("#firstname-validate").hide();
+}
+if(!lastname){
+        $("#lastname-validate").show();
+        validate=false;
+    }
+    else if(lastname){
+        $("#email-validate").hide();
+    }if(!phonenumber){
+        $("#phonenumber-validate").show();
+        validate=false;
+    }
+    else if(phonenumber){
+        $("#phonenumber-validate").hide();
+    }
+    if(!checkin_Date){
+        $("#checkin_Date-validate").show();
+        validate=false;
+    }
+    else if(checkin_Date){
+        $("#check_inDate-validate").hide();
+    } 
+    if(!check_outDate){
+        $("#check_outDate-validate").show();
+        validate=false;
+    }
+    else if(check_outDate){
+        $("#check_outDate-validate").hide();
+    }
+    return validate;
+
+    </script>

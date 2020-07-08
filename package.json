@@ -1,0 +1,36 @@
+{
+  "name": "hotelbooking",
+  "version": "1.0.0",
+  "description": "hotel booking app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "ronald atsali",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.19.0",
+    "config.json": "0.0.4",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "request": "^2.88.0",
+    "save": "^2.4.0",
+    "sequelize": "^5.21.3",
+    "sequelize-cli": "^5.5.1",
+    "yelp-fusion": "^3.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+<div id="login">
+        <h3 class="text-center text-white pt-5">guest login</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="guest/login" method="POST">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Room number:</label><br>
+                                <input type="text" name="room_number" id="room_number" class="form-control">
+                                <p class="validate" id="room_number-validate" style="display:none;">Please enter your room number.</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                                <p class="validate" id="password-validate" style="display:none;">Please enter your password .</p>
+                            <button type="submit" class="btn btn default" onclick="return empty()">login</button>
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="room/book" class="text-info">Book room  here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+function empty(){
+    var Room_number=$("#Room_number").val();
+    var password=$("#password").val();
+    var validate=true;
+
+if(!Room_number){
+    $("#Room_number-validate").show();
+    var validate=false;
+}
+else if(Room_number){
+    $("#Room_number-valiadate").hide();
+}
+if(!password){
+    $("#password-valiadate").hide();
+    validate=false;
+
+}else if(password){
+    $("#password-validate").hide();
+}
+return validate;
+}
+
+    </script>

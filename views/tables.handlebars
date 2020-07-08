@@ -1,0 +1,127 @@
+<div class="sign-form">
+    <form action="/tables" method="POST">
+    
+		<h2>reserve table</h2>
+		<p>Please reserve a table early</p>
+		<hr>
+        <div class="form-group">
+			<label>email</label>
+        	<input type="text" class="form-control" name="name" required="required" id="email">
+            <p class="validate" id="email-validate" style="display:none;">email</p>
+        </div>
+        <div class="form-group">
+			<label>name</label>
+        	<input type="text" class="form-control" name="name" required="required" id="name">
+            <p class="validate" id="name-validate" style="display:none;">Please enter your name.</p>
+        </div>
+        <div class="form-group">
+			<label>phonenumber</label>
+        	<input type="text" class="form-control" name="phonenumber" required="required" id="phonenumber">
+            <p class="validate" id="phonenumber-validate" style="display:none;">Please enter your phonenumber.</p>
+        </div>
+        <div class="form-group">
+			<label>reservation time:</label>
+        	<input type="time" class="form-control" name=" reservation time" required="required" id="reservation time">
+            <p class="validate" id="reservation_time-validate" style="display:none;">Please enter reservation time.</p>
+        </div>
+			<label>number of party</label>
+            <input type="number" class="form-control" name="number of party"required="required" id="number of party">
+            <p class="validate" id="num_party-validate" style="display:none;">Please enter number of party .</p>
+        </div>
+		        
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" onclick="return empty()">Book</button>
+        </div>
+    </form>
+    <div>
+        <div class = "row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel-panel default">
+        <ul class="list-group">
+        {{#each tables}}
+          {{#if this.available}}
+          <li class="list-group-item">
+            <div class="input-group">
+              <p class="lead">Your Reservation has been confirmed. <br>
+              Your table # is {{this.id}} <br>
+              Name: {{this.name}} <br>
+              Number in Party: {{this.num_party}} <br>
+              Reservation Time: {{this.res_time}}</p>
+              <form action="/tables/{{this.id}}?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-big btn-secondary btn-lg" id="trash">Cancel<span class="  glyphicon glyphicon-trash"></span></button>
+            </form>
+            </div>
+          </li>
+          {{/if}}
+        {{/each}}
+        </ul>
+      </div>
+      <div class="row">
+    <div class="col-md-12">
+    {{#each tables}}
+        {{#if this.available}}
+          <div class="room-reserved">{{this.id}}</div>
+        {{/if}} 
+    {{/each}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sm-room-available"></div>
+      <p>Available</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sm-room-reserved"></div>
+      <p>Reserved</p>
+    </div>
+    <footer class="footer"></footer>
+  </div>
+</div>
+        <script>
+            function empty(){
+                var name=$("name").val();
+                var email=$("email").val();
+                var phonenumber=$("phonenumber").val();
+                var reservation_time=$("reservation_time").val();
+                var num_party=$("num_party").val();
+                var validate;
+                if(!email){
+                    $("email-validate").show();
+                    validate=false;
+                } else if(email){
+                    $("email-validate").hide();
+                } 
+                if(!name){
+                    $("name-validate").show();
+                    validate=false;
+                } else if(name){
+                    $("name-validate").hide();
+                }
+                if(!phonenumber){
+                    $("phonenumber-validate").show();
+                    validate=false;
+                } else if(phonenumber){
+                    $("phonenumber-validate").hide();
+                }
+                if(!reservation_time){
+                    $("reservation_time-validate").show();
+                    validate=false;
+                } else if(reservation_time){
+                    $("reservation_time").hide();
+
+                }
+                if(!num_party){
+                    $("num_party").show();
+                    validate=false;
+
+                } else if(num_party){
+                    $("num_party").hide();
+                }
+
+
+                return validate;
+
+            }
+        </script>
